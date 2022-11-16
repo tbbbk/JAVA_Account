@@ -1,4 +1,6 @@
 package util;
 
-public class CenterPanel {
+import javax.swing.*;
+
+public class CenterPanel extends JPanel {
 }
