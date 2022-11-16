@@ -1,6 +1,5 @@
 package GUI.panel;
 
-import com.sun.tools.javac.Main;
 import util.CenterPanel;
 import util.GUIutil;
 
@@ -49,7 +48,7 @@ public class MainPanel extends JPanel {
         tb.add(bBackup);
         tb.add(bRecover);
 
-        workingPanel = new CenterPanel();
+        workingPanel = new CenterPanel(0.85);
 
         this.setLayout(new BorderLayout());
         this.add(tb, BorderLayout.NORTH);
@@ -58,6 +57,7 @@ public class MainPanel extends JPanel {
         // TODO: 2022/11/16 add listener
     }
 
-    public static void main(String)
-
+    public static void main(String[] args) {
+        GUIutil.showPanel(MainPanel.instance, 1);
+    }
 }

@@ -7,7 +7,10 @@ import java.io.File;
 public class GUIutil {
     // Image Folder
     private static final String imgFolder = "resources/img/";
-    // Customize Skin
+
+    /**
+     * customize skin
+     */
     public static void useLNF() {
         try {
             javax.swing.UIManager.setLookAndFeel("com.pagosoft.plaf.PgsLookAndFeel");
@@ -31,6 +34,24 @@ public class GUIutil {
         b.setVerticalTextPosition(JButton.BOTTOM);
         b.setHorizontalTextPosition(JButton.CENTER);
         b.setText(tip);
+    }
+
+    /**
+     * For test, put in a panel and start a window
+     *
+     * @param p     the panel to be tested
+     * @param stretch Scaling
+     */
+    public static void showPanel(JPanel p, double stretch) {
+        GUIutil.useLNF();
+        JFrame f = new JFrame();
+        f.setLocationRelativeTo(null);
+        f.setSize(500, 500);
+        CenterPanel cp = new CenterPanel(stretch);
+        f.setContentPane(cp);
+        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        f.setVisible(true);
+        cp.show(p);
     }
 
 }
