@@ -11,13 +11,13 @@ public class GUIutil {
     /**
      * customize skin
      */
-    public static void useLNF() {
-        try {
-            javax.swing.UIManager.setLookAndFeel("com.pagosoft.plaf.PgsLookAndFeel");
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
+//    public static void useLNF() {
+//        try {
+//            javax.swing.UIManager.setLookAndFeel("com.pagosoft.plaf.PgsLookAndFeel");
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//    }
 
     /**
      * set icon and text of a button
@@ -39,11 +39,11 @@ public class GUIutil {
     /**
      * For test, put in a panel and start a window
      *
-     * @param p     the panel to be tested
-     * @param stretch Scaling
+     * @param p         the panel to be tested
+     * @param stretch   Scaling
      */
     public static void showPanel(JPanel p, double stretch) {
-        GUIutil.useLNF();
+        //GUIutil.useLNF();
         JFrame f = new JFrame();
         f.setLocationRelativeTo(null);
         f.setSize(550, 500);
@@ -52,6 +52,21 @@ public class GUIutil {
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         f.setVisible(true);
         cp.show(p);
+    }
+
+    public static void showPanel(JPanel p) {
+        showPanel(p, 0.85);
+    }
+
+    /**
+     * set specify color for components
+     * @param color colour
+     * @param cs    components
+     */
+    public static void setColor(Color color, JComponent... cs) {
+        for (JComponent c: cs) {
+            c.setForeground(color);
+        }
     }
 
 }

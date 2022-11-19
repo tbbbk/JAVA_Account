@@ -13,7 +13,7 @@ import java.awt.*;
 
 public class MainPanel extends JPanel {
     static {
-        GUIutil.useLNF();
+        //GUIutil.useLNF();
     }
 
     public static MainPanel instance = new MainPanel();

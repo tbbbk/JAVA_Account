@@ -7,7 +7,7 @@ import javax.swing.*;
 
 public class MainFrame extends JFrame {
     static {
-        GUIutil.useLNF();
+        //GUIutil.useLNF();
     }
 
     public static MainFrame instance = new MainFrame();
