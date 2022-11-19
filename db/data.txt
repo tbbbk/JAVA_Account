@@ -1,0 +1,3 @@
+jdbc:mysql://1.15.92.33:3306/hutubill
+root
+Kuizaidsg23333.

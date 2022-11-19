@@ -90,7 +90,7 @@ public class SpendPanel extends WorkingPanel{
 
     @Override
     public void updateData() {
-        SpendPage spend = new SpendPage()
+
     }
 
     @Override
