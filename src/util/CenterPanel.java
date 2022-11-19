@@ -28,11 +28,23 @@ public class CenterPanel extends JPanel{
         this(rate, true);
     }
 
+    @Override
     /**
      * Only be called when swing update the interface
      */
     public void repaint() {
-        // TODO: 2022/11/16
+        if (null != c) {
+            Dimension containerSize = this.getSize();
+            Dimension componentSize = c.getPreferredSize();
+            if (stretch) {
+                c.setSize((int)(containerSize.width * rate), (int)(containerSize.height * rate));
+            }
+            else {
+                c.setSize(componentSize);
+            }
+            c.setLocation(containerSize.width / 2 - c.getSize().width / 2,  containerSize.height / 2 - c.getSize().height / 2);
+        }
+        super.repaint();
     }
 
     /**

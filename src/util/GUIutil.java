@@ -46,7 +46,7 @@ public class GUIutil {
         GUIutil.useLNF();
         JFrame f = new JFrame();
         f.setLocationRelativeTo(null);
-        f.setSize(500, 500);
+        f.setSize(550, 500);
         CenterPanel cp = new CenterPanel(stretch);
         f.setContentPane(cp);
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
