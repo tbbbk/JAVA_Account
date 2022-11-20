@@ -17,7 +17,17 @@ public class SpendService {
         RecordDAO dao = new RecordDAO();
         List<Record> thisMonthRecords = dao.listThisMonth();
         List<Record> todayRecords = dao.listToday();
-        int thisMonthTotalday = DateUtil.this
+        int thisMonthTotalday = DateUtil.thisMonthTotalDay();
+
+        int MonthSpend = 0;
+        int TodaySpend = 0;
+        int AvgSpendPerDay = 0;
+        int MonthAvailable = 0;
+        int DayAvgAvailable = 0;
+        int MonthLeftDay = 0;
+        int usagePercentage = 0;
+
+//        int monthBudget = new Congi
 
     }
 }
