@@ -14,7 +14,7 @@ public class Record {
 
     public Record() {}
 
-    public Record(int spend, int id, int cid, String comment, Date date) {
+    public Record(int id, int spend, int cid, String comment, Date date) {
         this.spend = spend;
         this.id = id;
         this.cid = cid;
