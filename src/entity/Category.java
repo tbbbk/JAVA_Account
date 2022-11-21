@@ -1,7 +1,7 @@
 package entity;
 
 /**
- * entity class - Category
+ * entity class - CategoryDAO
  */
 public class Category {
     private int id;
@@ -41,7 +41,7 @@ public class Category {
 
     @Override
     public String toString() {
-        return "Category{" +
+        return "CategoryDAO{" +
                 "name='" + name + '\'' +
                 '}';
     }

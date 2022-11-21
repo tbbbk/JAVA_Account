@@ -36,9 +36,7 @@ public class CircleProgressBar extends JPanel {
     }
 
     /**
-     * 根据百分比 绘制 漂亮的环形图
-     *
-     * @param g 百分比
+     * @param g percentage
      */
     public void paint(Graphics g) {
         super.paint(g);

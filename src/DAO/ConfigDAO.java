@@ -41,9 +41,7 @@ public class ConfigDAO {
             ps.setString(2, config.getValue());
             ps.setInt(3, config.getId());
             ps.executeUpdate();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        } catch (IOException e) {
+        } catch (SQLException | IOException e) {
             throw new RuntimeException(e);
         }
         return result;

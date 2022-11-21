@@ -5,6 +5,7 @@ import GUI.page.SpendPage;
 import entity.Record;
 import util.DateUtil;
 
+import java.time.Month;
 import java.util.Date;
 import java.util.List;
 
@@ -27,7 +28,22 @@ public class SpendService {
         int MonthLeftDay = 0;
         int usagePercentage = 0;
 
-//        int monthBudget = new Congi
+        int monthBudget = new ConfigService().getIntBudget();
 
+        for (Record record: thisMonthRecords) {
+            MonthSpend += record.getSpend();
+        }
+
+        for (Record record: todayRecords) {
+            TodaySpend += record.getSpend();
+        }
+
+        AvgSpendPerDay = MonthSpend / thisMonthTotalday;
+        MonthAvailable = monthBudget - MonthSpend;
+        DayAvgAvailable = MonthAvailable / DateUtil.thisMonthLeftDay();
+        MonthLeftDay = DateUtil.thisMonthLeftDay();
+        usagePercentage = MonthSpend * 100 / monthBudget;
+
+        return new SpendPage(MonthSpend, TodaySpend, AvgSpendPerDay, MonthAvailable, DayAvgAvailable, MonthLeftDay, usagePercentage);
     }
 }

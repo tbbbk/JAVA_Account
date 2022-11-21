@@ -1,5 +1,6 @@
 package GUI.panel;
 
+import GUI.listener.ToolBarListeners;
 import util.CenterPanel;
 import util.GUIutil;
 
@@ -34,7 +35,7 @@ public class MainPanel extends JPanel {
         GUIutil.setImageIcon(bRecord, "record.png", "Bookkeeping");
         GUIutil.setImageIcon(bHistory, "history.png", "History");
         GUIutil.setImageIcon(bCategory, "report.png", "Report");
-        GUIutil.setImageIcon(bReport, "category.png", "Category");
+        GUIutil.setImageIcon(bReport, "category.png", "CategoryDAO");
         GUIutil.setImageIcon(bConfig, "config.png", "Config");
         GUIutil.setImageIcon(bBackup, "backup.png", "Backup");
         GUIutil.setImageIcon(bRecover, "restore.png", "Restore");
@@ -54,7 +55,22 @@ public class MainPanel extends JPanel {
         this.add(tb, BorderLayout.NORTH);
         this.add(workingPanel, BorderLayout.CENTER);
 
-        // TODO: 2022/11/16 add listener
+        addListeners();
+    }
+
+    /**
+     * Listeners
+     */
+    private void addListeners() {
+        ToolBarListeners  tbl = new ToolBarListeners();
+        bSpend.addActionListener(tbl);
+        bRecord.addActionListener(tbl);
+        bHistory.addActionListener(tbl);
+        bCategory.addActionListener(tbl);
+        bReport.addActionListener(tbl);
+        bConfig.addActionListener(tbl);
+        bBackup.addActionListener(tbl);
+        bRecover.addActionListener(tbl);
     }
 
     public static void main(String[] args) {

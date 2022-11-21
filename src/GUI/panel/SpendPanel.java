@@ -1,6 +1,7 @@
 package GUI.panel;
 
 import GUI.page.SpendPage;
+import service.SpendService;
 import util.CircleProgressBar;
 import util.GUIutil;
 
@@ -17,14 +18,14 @@ public class SpendPanel extends WorkingPanel{
     private JLabel lMonthSpend =new JLabel("MonthSpend");
     private JLabel lTodaySpend =new JLabel("TodaySpend");
     private JLabel lAvgSpendPerDay =new JLabel("AvgSpendPerDay");
-    private JLabel lMonthLeft =new JLabel("MonthLeft");
+    private JLabel lMonthLeft =new JLabel("MonthAvailable");
     private JLabel lDayAvgAvailable =new JLabel("DayAvgAvailable");
     private JLabel lMonthLeftDay =new JLabel("MonthLeftDay");
 
     private JLabel vMonthSpend= new JLabel("$3720");
     private JLabel vTodaySpend= new JLabel("$23");
     private JLabel vAvgSpendPerDay= new JLabel("$232");
-    private JLabel vMonthLeft= new JLabel("$234");
+    private JLabel vMonthAvailable= new JLabel("$234");
     private JLabel vDayAvgAvailable= new JLabel("$123");
     private JLabel vMonthLeftDay= new JLabel("7days");
 
@@ -35,7 +36,7 @@ public class SpendPanel extends WorkingPanel{
         bar = new CircleProgressBar();
         bar.setBackgroundColor(Color.blue);
         GUIutil.setColor(Color.gray, lMonthSpend, lTodaySpend, lAvgSpendPerDay, lMonthLeft, lDayAvgAvailable, lMonthLeftDay,
-                        vAvgSpendPerDay, vMonthLeft, vDayAvgAvailable, vMonthLeftDay);
+                        vAvgSpendPerDay, vMonthAvailable, vDayAvgAvailable, vMonthLeftDay);
         GUIutil.setColor(Color.blue, vMonthSpend, vTodaySpend);
         vMonthSpend.setFont(new Font("Arial Unicode MS", Font.BOLD, 23));
         vTodaySpend.setFont(new Font("Arial Unicode MS", Font.BOLD, 23));
@@ -60,7 +61,7 @@ public class SpendPanel extends WorkingPanel{
         p.add(lDayAvgAvailable);
         p.add(lMonthLeftDay);
         p.add(vAvgSpendPerDay);
-        p.add(vMonthLeft);
+        p.add(vMonthAvailable);
         p.add(vDayAvgAvailable);
         p.add(vMonthLeftDay);
         return p;
@@ -90,7 +91,23 @@ public class SpendPanel extends WorkingPanel{
 
     @Override
     public void updateData() {
-
+        SpendPage page = new SpendService().getSpendPage();
+        vMonthSpend.setText(page.MonthSpend);
+        vTodaySpend.setText(page.TodaySpend);
+        vAvgSpendPerDay.setText(page.AvgSpendPerDay);
+        vDayAvgAvailable.setText(page.DayAvgAvailable);
+        vMonthAvailable.setText(page.MonthAvailable);
+        vMonthLeftDay.setText(page.MonthLeftDay);
+        bar.setProgress(page.usagePercentage);
+        if (page.isOverSpend) {
+            vMonthAvailable.setForeground(Color.decode("#FF3333"));
+            vMonthSpend.setForeground(Color.decode("#FF3333"));
+            vTodaySpend.setForeground(Color.decode("#FF3333"));
+        } else {
+            vMonthAvailable.setForeground(Color.gray);
+            vMonthSpend.setForeground(Color.blue);
+            vTodaySpend.setForeground(Color.blue);
+        }
     }
 
     @Override

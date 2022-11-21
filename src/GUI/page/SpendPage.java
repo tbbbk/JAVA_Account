@@ -17,15 +17,15 @@ public class SpendPage {
         this.MonthSpend = "$" + monthSpend;
         this.TodaySpend = "$" + todaySpend;
         this.AvgSpendPerDay = "$" + avgSpendPerDay;
-        if (monthAvailable >= 0) {
-            this.isOverSpend = true;
+        if (monthAvailable < 0) {
+            this.isOverSpend = false;
         }
         if (!isOverSpend) {
             this.MonthAvailable = "$" + monthAvailable;
             this.DayAvgAvailable = "$" + dayAvgAvailable;
         }
         else {
-            this.MonthAvailable = "over$" + monthAvailable;
+            this.MonthAvailable = "over$" + -monthAvailable;
             this.DayAvgAvailable = "$0";
         }
         this.MonthLeftDay = monthLeftDay + "days";
