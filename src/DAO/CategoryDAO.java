@@ -43,12 +43,12 @@ public class CategoryDAO {
         return result;
     }
 
-    public int delete(Category category) {
+    public int delete(int id) {
         String sql = "DELETE category WHERE id = ?";
         int result = 0;
         try (Connection c = DButil.getConnection();
              PreparedStatement ps = c.prepareStatement(sql)) {
-            ps.setInt(1, category.getId());
+            ps.setInt(1, id);
         } catch (SQLException | IOException e) {
             throw new RuntimeException(e);
         }

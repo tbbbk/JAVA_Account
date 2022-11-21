@@ -69,4 +69,25 @@ public class GUIutil {
         }
     }
 
+    /**
+     * check num
+     * @param textField     TextFiled
+     * @param name          Name
+     * @return              is or not a num
+     */
+    public static boolean checkNumber(JTextField textField, String name) {
+        String text = textField.getText().trim();
+        if (text.length() <= 0) {
+            JOptionPane.showMessageDialog(null, "Wrong Input, " + name + "cannot be empty");
+            textField.grabFocus();
+            return false;
+        }
+        try {
+            Integer.parseInt(text);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, name + " isn't a number");
+            return false;
+        }
+        return true;
+    }
 }
