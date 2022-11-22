@@ -34,8 +34,8 @@ public class MainPanel extends JPanel {
         GUIutil.setImageIcon(bSpend, "home.png", "Overview");
         GUIutil.setImageIcon(bRecord, "record.png", "Bookkeeping");
         GUIutil.setImageIcon(bHistory, "history.png", "History");
-        GUIutil.setImageIcon(bCategory, "report.png", "Report");
-        GUIutil.setImageIcon(bReport, "category.png", "CategoryDAO");
+        GUIutil.setImageIcon(bReport, "report.png", "Report");
+        GUIutil.setImageIcon(bCategory, "category.png", "Category");
         GUIutil.setImageIcon(bConfig, "config.png", "Config");
         GUIutil.setImageIcon(bBackup, "backup.png", "Backup");
         GUIutil.setImageIcon(bRecover, "restore.png", "Restore");

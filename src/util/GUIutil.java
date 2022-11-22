@@ -29,7 +29,7 @@ public class GUIutil {
     public static void setImageIcon(JButton b, String filename, String tip) {
         ImageIcon i = new ImageIcon((new File(imgFolder, filename)).getAbsolutePath());
         b.setIcon(i);
-        b.setPreferredSize(new Dimension(61, 81));
+        b.setPreferredSize(new Dimension(71, 81));
         b.setToolTipText(tip);
         b.setVerticalTextPosition(JButton.BOTTOM);
         b.setHorizontalTextPosition(JButton.CENTER);

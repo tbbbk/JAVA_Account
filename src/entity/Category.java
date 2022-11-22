@@ -41,8 +41,6 @@ public class Category {
 
     @Override
     public String toString() {
-        return "CategoryDAO{" +
-                "name='" + name + '\'' +
-                '}';
+        return name;
     }
 }

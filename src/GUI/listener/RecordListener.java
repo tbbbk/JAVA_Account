@@ -1,7 +1,11 @@
 package GUI.listener;
 
+import GUI.panel.HistoryListPanel;
+import GUI.panel.HistoryPanel;
+import GUI.panel.MainPanel;
 import GUI.panel.RecordPanel;
 import entity.Category;
+import service.RecordService;
 import util.GUIutil;
 
 import javax.swing.*;
@@ -30,7 +34,13 @@ public class RecordListener implements ActionListener {
         Date d = p.DatePick.getDate();
 
         if(p.updateId < 0) {
-            new RecordService
+            new RecordService().add(Integer.parseInt(spend), c.getId(), comment, d);
+        } else {
+            new RecordService().update(p.updateId, Integer.parseInt(spend), c.getId(), comment, d);
+            JOptionPane.showMessageDialog(p, "Change successfully");
+            MainPanel.instance.workingPanel.show(HistoryPanel.instance);
+            p.updateId = -1;
+            HistoryListPanel.instance.updateData();
         }
     }
 }

@@ -1,21 +1,21 @@
 package GUI.model;
 
-
-import entity.Category;
-import service.CategoryService;
+import DAO.CategoryDAO;
+import GUI.panel.MonthPickerPanel;
+import entity.Record;
+import service.RecordService;
 
 import javax.swing.event.TableModelListener;
 import javax.swing.table.TableModel;
 import java.util.List;
 
-public class CategoryTableModel implements TableModel {
-    private String[] columnNames = new String[]{"Name", "Times"};
-    public List<Category> cs = new CategoryService().list();
-
+public class RecordTableModel implements TableModel {
+    private String[] columnNames = new String[]{"ID", "spend", "category", "comment", "date"};
+    public List<Record> rs = new RecordService().listMonth(MonthPickerPanel.instance.date);
 
     @Override
     public int getRowCount() {
-        return cs.size();
+        return rs.size();
     }
 
     @Override
@@ -41,17 +41,26 @@ public class CategoryTableModel implements TableModel {
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
         if (columnIndex == 0) {
-            return cs.get(rowIndex).getName();
+            return rs.get(rowIndex).getId();
         }
         if (columnIndex == 1) {
-            return cs.get(rowIndex).getRecordNumber();
+            return rs.get(rowIndex).getSpend();
+        }
+        if (columnIndex == 2) {
+            int cid = rs.get(rowIndex).getCid();
+            return new CategoryDAO().get(cid).getName();
+        }
+        if (columnIndex == 3) {
+            return rs.get(rowIndex).getComment();
+        }
+        if (columnIndex == 4) {
+            return rs.get(rowIndex).getDate();
         }
         return null;
     }
 
     @Override
     public void setValueAt(Object aValue, int rowIndex, int columnIndex) {
-
     }
 
     @Override

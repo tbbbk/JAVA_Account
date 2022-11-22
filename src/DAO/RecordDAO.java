@@ -7,6 +7,7 @@ import util.DateUtil;
 import java.io.IOException;
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.stream.StreamSupport;
 
@@ -26,16 +27,13 @@ public class RecordDAO {
             ps.setInt(2, record.getCid());
             ps.setString(3, record.getComment());
             ps.setDate(4, DateUtil.util2sql(record.getDate()));
-            ps.executeUpdate();
+            ps.execute();
             ResultSet result = ps.getGeneratedKeys();
             if (result.next()) {
                 int id = result.getInt(1);
                 record.setId(id);
             }
-            result.close();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        } catch (IOException e) {
+        } catch (SQLException | IOException e) {
             throw new RuntimeException(e);
         }
     }
