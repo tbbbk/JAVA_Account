@@ -9,6 +9,9 @@ import javax.swing.*;
 import java.awt.*;
 
 public class ReportPanel extends WorkingPanel{
+    static {
+        GUIutil.useLNF();
+    }
     public static ReportPanel instance = new ReportPanel();
 
     public JLabel l = new JLabel();

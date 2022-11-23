@@ -13,6 +13,9 @@ import java.util.jar.JarEntry;
  * overview
  */
 public class SpendPanel extends WorkingPanel{
+    static {
+        GUIutil.useLNF();
+    }
     public static SpendPanel instance = new SpendPanel();
 
     private JLabel lMonthSpend =new JLabel("MonthSpend");

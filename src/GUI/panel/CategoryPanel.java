@@ -11,6 +11,9 @@ import java.awt.*;
 import java.util.jar.JarEntry;
 
 public class CategoryPanel extends WorkingPanel{
+    static {
+        GUIutil.useLNF();
+    }
     public static CategoryPanel instance = new CategoryPanel();
     public JButton bAdd = new JButton("New");
     public JButton bEdit = new JButton("Edit");

@@ -5,6 +5,9 @@ import util.GUIutil;
 import java.awt.*;
 
 public class HistoryPanel extends WorkingPanel{
+    static {
+        GUIutil.useLNF();
+    }
     public static HistoryPanel instance = new HistoryPanel();
 
     private HistoryPanel() {

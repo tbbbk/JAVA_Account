@@ -14,7 +14,7 @@ import java.awt.*;
 
 public class MainPanel extends JPanel {
     static {
-        //GUIutil.useLNF();
+        GUIutil.useLNF();
     }
 
     public static MainPanel instance = new MainPanel();
@@ -24,9 +24,6 @@ public class MainPanel extends JPanel {
     public JButton bHistory = new JButton();
     public JButton bCategory = new JButton();
     public JButton bReport = new JButton();
-    public JButton bConfig = new JButton();
-    public JButton bBackup = new JButton();
-    public JButton bRecover = new JButton();
 
     public CenterPanel workingPanel;
 
@@ -36,18 +33,12 @@ public class MainPanel extends JPanel {
         GUIutil.setImageIcon(bHistory, "history.png", "History");
         GUIutil.setImageIcon(bReport, "report.png", "Report");
         GUIutil.setImageIcon(bCategory, "category.png", "Category");
-        GUIutil.setImageIcon(bConfig, "config.png", "Config");
-        GUIutil.setImageIcon(bBackup, "backup.png", "Backup");
-        GUIutil.setImageIcon(bRecover, "restore.png", "Restore");
 
         tb.add(bSpend);
         tb.add(bRecord);
         tb.add(bHistory);
         tb.add(bCategory);
         tb.add(bReport);
-        tb.add(bConfig);
-        tb.add(bBackup);
-        tb.add(bRecover);
 
         workingPanel = new CenterPanel(0.85);
 
@@ -68,9 +59,6 @@ public class MainPanel extends JPanel {
         bHistory.addActionListener(tbl);
         bCategory.addActionListener(tbl);
         bReport.addActionListener(tbl);
-        bConfig.addActionListener(tbl);
-        bBackup.addActionListener(tbl);
-        bRecover.addActionListener(tbl);
     }
 
     public static void main(String[] args) {

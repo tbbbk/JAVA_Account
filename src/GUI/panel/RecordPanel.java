@@ -7,18 +7,20 @@ import entity.Category;
 
 import javax.swing.*;
 
-import org.jdesktop.swingx.JXDatePicker;
 import service.CategoryService;
-import util.CenterPanel;
 import util.GUIutil;
 
 import java.awt.*;
 import java.util.Date;
+import org.jdesktop.swingx.JXDatePicker;
 
 /**
  * Bookkeeping Panel
  */
 public class RecordPanel extends WorkingPanel {
+    static {
+        GUIutil.useLNF();
+    }
     public static RecordPanel instance = new RecordPanel();
     public int updateId = -1;   // (>0 change || <0 add)
     private JLabel lSpend = new JLabel("Spend($)");

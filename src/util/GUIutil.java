@@ -11,13 +11,13 @@ public class GUIutil {
     /**
      * customize skin
      */
-//    public static void useLNF() {
-//        try {
-//            javax.swing.UIManager.setLookAndFeel("com.pagosoft.plaf.PgsLookAndFeel");
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//    }
+    public static void useLNF() {
+        try {
+            javax.swing.UIManager.setLookAndFeel("com.pagosoft.plaf.PgsLookAndFeel");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
     /**
      * set icon and text of a button
@@ -29,7 +29,7 @@ public class GUIutil {
     public static void setImageIcon(JButton b, String filename, String tip) {
         ImageIcon i = new ImageIcon((new File(imgFolder, filename)).getAbsolutePath());
         b.setIcon(i);
-        b.setPreferredSize(new Dimension(71, 81));
+        b.setPreferredSize(new Dimension(100, 81));
         b.setToolTipText(tip);
         b.setVerticalTextPosition(JButton.BOTTOM);
         b.setHorizontalTextPosition(JButton.CENTER);

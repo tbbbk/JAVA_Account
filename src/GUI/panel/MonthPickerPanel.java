@@ -2,12 +2,16 @@ package GUI.panel;
 
 import GUI.listener.MonthPickerListener;
 import util.DateUtil;
+import util.GUIutil;
 
 import javax.swing.*;
 import java.awt.*;
 import java.util.Date;
 
 public class MonthPickerPanel extends WorkingPanel{
+    static {
+        GUIutil.useLNF();
+    }
     public static MonthPickerPanel instance = new MonthPickerPanel();
     private final int startYear = 2017;
     public Date date = DateUtil.monthBegin();

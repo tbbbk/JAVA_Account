@@ -1,5 +1,7 @@
 package GUI.panel;
 
+import util.GUIutil;
+
 import javax.swing.*;
 
 /**
@@ -7,6 +9,9 @@ import javax.swing.*;
  * Centre the subPanel and update the data by calling the this.updateData() method.
  */
 public abstract class WorkingPanel extends JPanel {
+    static {
+        GUIutil.useLNF();
+    }
     public abstract void updateData();
     public abstract void addListener();
 }

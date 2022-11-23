@@ -10,6 +10,9 @@ import javax.swing.*;
 import java.awt.*;
 
 public class HistoryListPanel extends WorkingPanel{
+    static {
+        GUIutil.useLNF();
+    }
     public static HistoryListPanel instance = new HistoryListPanel();
     public JButton bAdd = new JButton("New");
     public JButton bEdit = new JButton("Edit");
